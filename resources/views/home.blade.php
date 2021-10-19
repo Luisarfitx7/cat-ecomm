@@ -17,4 +17,4 @@
         <div>d</div>
     </div>
 </div>
-{{dd($productsArray)}}
+@include('includes.footer')
