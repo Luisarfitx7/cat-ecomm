@@ -21,11 +21,8 @@ Route::prefix('/user')->group(function(){
 });
 
 
-//Route::middleware('auth:api')->group(function () {
-    Route::get('get-user', [PassportAuthController::class, 'userInfo']);
-    Route::resource('product', ProductController::class);
-    //Route::post('product', [ProductController::class, 'store']);
-//});
+Route::get('get-user', [PassportAuthController::class, 'userInfo']);
+Route::resource('products', ProductController::class);
 
   
 
