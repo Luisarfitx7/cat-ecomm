@@ -9,9 +9,10 @@ use Illuminate\Support\Facades\Http;
 class FrontController extends Controller
 {
     public function index(){
-        $products = HTTP::get('https://jsonplaceholder.typicode.com/users');
-        //$productsArray = $products->json();
-        $productsArray = $products->object();
-        return view('home', compact('productsArray'));
+        // api/product is consumed 
+        $products = HTTP::get($_SERVER['HTTP_HOST'] . '/api/products');
+        //transform api data in an object
+        $productsObject = $products->object();
+        return view('home', compact('productsObject'));
     }
 }
