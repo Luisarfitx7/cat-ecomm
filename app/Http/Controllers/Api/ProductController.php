@@ -83,7 +83,6 @@ class ProductController extends Controller
             'price' => 'required',
             'slug' => 'required'
         ]);
-        dd($request);
         $product = Product::where('id',$id)->first();
         $product->name = $request->name;
         $product->description = $request->description;

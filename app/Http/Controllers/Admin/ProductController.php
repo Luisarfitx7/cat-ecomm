@@ -95,16 +95,20 @@ class ProductController extends Controller
         ]);
         $slug = Str::slug($request->name);
         $price= floatval($request->price);
-        $response = Http::put($_SERVER['HTTP_HOST'] . '/api/products' . $id, [
+        $response = Http::put($_SERVER['HTTP_HOST'] . '/api/products/' . $id, [
             'name' => $request->name,
             'description' => $request->description,
             'price' => $price,
             'status' => $request->status,
             'slug' => $slug
         ]);
-
+        $responseObject = $response->object();
+        if($responseObject == []){
+            return redirect()->route('products.index')
+            ->with('error', 'Something not ideal might be happening.');
+        }
         return redirect()->route('products.index')
-            ->with('success', 'Product created successfully.');
+            ->with('success', 'Product updated successfully.');
     }
     /**
      * Remove the specified resource from storage.
