@@ -15,14 +15,9 @@ use App\Http\Controllers\API\ProductController;
 |
 */
 
-Route::prefix('/user')->group(function(){
-    Route::post('register', [PassportAuthController::class, 'register']);
-    Route::post('login', [PassportAuthController::class, 'login']);
-});
-
-
 Route::get('get-user', [PassportAuthController::class, 'userInfo']);
 Route::resource('products', ProductController::class);
+Route::resource('users', PassportAuthController::class);
 
   
 

@@ -9,5 +9,3 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <title>Cat-ecomm</title>
 </head>
-<body>
-</body>
