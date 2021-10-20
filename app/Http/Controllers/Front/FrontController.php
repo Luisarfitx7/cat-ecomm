@@ -14,6 +14,6 @@ class FrontController extends Controller
         $products = HTTP::get($_SERVER['HTTP_HOST'] . '/api/products');
         //transform api data in an object
         $productsObject = $products->object();
-        return view('home', compact('productsObject'));
+        return view('includes.products', compact('productsObject'));
     }
 }
