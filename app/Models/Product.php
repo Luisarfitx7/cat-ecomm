@@ -13,6 +13,7 @@ class Product extends Model
         'name',
         'slug',
         'status',
-        'detail',
+        'description',
+        'price'
     ];
 }

@@ -30,15 +30,20 @@ class ProductController extends Controller
     * @return \Illuminate\Http\Response
     */
     public function store(Request $request){
-        $input = $request->all();
-        $validator = Validator::make($input, [
+        $this->validate($request, [
             'name' => 'required',
-            'detail' => 'required'
+            'description' => 'required',
+            'status' => 'required',
+            'price' => 'required',
+            'slug' => 'required'
         ]);
-        if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());       
-        }
-        $product = Product::create($input);
+        $product = Product::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'status' => $request->status,
+            'price' => $request->price,
+            'slug' => $request->slug
+        ]);
         return response()->json([
             "success" => true,
             "message" => "Product created successfully.",
@@ -69,24 +74,28 @@ class ProductController extends Controller
     * @param  int  $id
     * @return \Illuminate\Http\Response
     */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-    $input = $request->all();
-    $validator = Validator::make($input, [
-    'name' => 'required',
-    'detail' => 'required'
-    ]);
-    if($validator->fails()){
-    return $this->sendError('Validation Error.', $validator->errors());       
-    }
-    $product->name = $input['name'];
-    $product->detail = $input['detail'];
-    $product->save();
-    return response()->json([
-    "success" => true,
-    "message" => "Product updated successfully.",
-    "data" => $product
-    ]);
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+            'status' => 'required',
+            'price' => 'required',
+            'slug' => 'required'
+        ]);
+        dd($request);
+        $product = Product::where('id',$id)->first();
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->status = $request->status;
+        $product->price = $request->price;
+        $product->slug = $request->slug;
+        $product->update();
+        return response()->json([
+        "success" => true,
+        "message" => "Product updated successfully.",
+        "data" => $product
+        ]);
     }
     /**
     * Remove the specified resource from storage.
