@@ -19,7 +19,7 @@
           <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white" href="/">
           <img class="mx-auto content-center" src="https://mdn.mozillademos.org/files/6851/mdn_logo.png"
                 alt="MDN logo" />
-            indigo Menu
+            Cat-ecomm
           </a>
           <button id="button" class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button">
             <span class="block relative w-6 h-px rounded-sm bg-white"></span>
@@ -30,18 +30,8 @@
         <div class="flex lg:flex-grow items-center" id="menu">
           <ul class="flex flex-col lg:flex-row list-none ml-auto">
             <li class="nav-item">
-              <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
-                Discover
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
-                Profile
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
-                Settings
+              <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="/">
+                Home
               </a>
             </li>
             <li class="nav-item">
@@ -92,7 +82,7 @@
 
 
     </header>
-    <main class="my-8">
+    <main class="">
             @yield('content')
     </main>
 @include('includes.footer')

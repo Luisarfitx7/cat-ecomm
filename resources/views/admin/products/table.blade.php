@@ -65,7 +65,7 @@
                                         @endif
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="{{route('products.edit', [$product->id])}}" class="px-4 py-1 text-sm text-white bg-blue-400 rounded">Edit</a>
+                                        <a href="{{route('products.edit', [$product->slug])}}" class="px-4 py-1 text-sm text-white bg-blue-400 rounded">Edit</a>
                                     </td>
                                     <td class="px-6 py-4">
                                         <form class="w-full max-w-lg" action="{{route('products.destroy', [$product->id])}}" method="POST">

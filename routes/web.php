@@ -19,14 +19,14 @@ use App\Http\Controllers\ADMIN\UserController;
 */
 
 
-Route::get('/', [FrontController::class, 'index']);
-Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
-Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
+Route::get('/', [FrontController::class, 'index'])->name('home');
+Route::get('typ', [FrontController::class, 'typ'])->name('typ');
+Route::get('checkout', [CartController::class, 'cartList'])->name('cart.list');
+Route::post('checkout', [CartController::class, 'addToCart'])->name('cart.store');
 Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
 Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
-//Route::get('/checkout', [FrontController::class, 'checkout']);
-//Route::get('/{productName}', [FrontController::class, 'checkout']);
+Route::get('/{productName}', [FrontController::class, 'product'])->name('product.show');
 
 Route::prefix('/admin')->middleware(['admin','auth'])->group(function(){
     Route::get('/', [AdminController::class, 'index']);
@@ -47,4 +47,3 @@ Route::prefix('/admin')->middleware(['admin','auth'])->group(function(){
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
