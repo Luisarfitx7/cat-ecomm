@@ -28,9 +28,8 @@ Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear'
 //Route::get('/checkout', [FrontController::class, 'checkout']);
 //Route::get('/{productName}', [FrontController::class, 'checkout']);
 
-Route::prefix('/admin')->group(function(){
+Route::prefix('/admin')->middleware(['admin','auth'])->group(function(){
     Route::get('/', [AdminController::class, 'index']);
-
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
     Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
     Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
@@ -45,3 +44,7 @@ Route::prefix('/admin')->group(function(){
     Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
     Route::post('/users', [UserController::class, 'store'])->name('users.store');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
