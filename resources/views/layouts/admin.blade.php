@@ -1,4 +1,17 @@
-<div class="flex flex-wrap py-2">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <title>Cat-ecomm</title>
+</head>
+<body>
+    <header>
+    <div class="flex flex-wrap py-2">
   <div class="w-full px-4">
     <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-indigo-500 rounded">
       <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
@@ -40,4 +53,11 @@
     </nav>
   </div>
 </div>
+
+    </header>
+    <main class="my-8">
+            @yield('content')
+    </main>
+</body>
+</html>
 <script src="{{asset('js/menu.js')}}"></script>

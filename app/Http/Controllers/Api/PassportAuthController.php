@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request; 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class PassportAuthController extends Controller
 {
@@ -77,16 +78,16 @@ class PassportAuthController extends Controller
     * @return \Illuminate\Http\Response
     */
     public function store(Request $request){
-        $input = $request->all();
-        $validator = Validator::make($input, [
+        $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
             'password' => 'required'
         ]);
-        if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());       
-        }
-        $user = User::create($input);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+        ]);
         return response()->json([
             "success" => true,
             "message" => "User created successfully.",
@@ -117,26 +118,23 @@ class PassportAuthController extends Controller
     * @param  int  $id
     * @return \Illuminate\Http\Response
     */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-    $input = $request->all();
-    $validator = Validator::make($input, [
-    'name' => 'required',
-    'email' => 'required',
-    'password' => 'required'
-    ]);
-    if($validator->fails()){
-    return $this->sendError('Validation Error.', $validator->errors());       
-    }
-    $user->name = $input['name'];
-    $user->password = $input['password'];
-    $user->email = $input['password'];
-    $user->save();
-    return response()->json([
-    "success" => true,
-    "message" => "User updated successfully.",
-    "data" => $user
-    ]);
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+        $user = User::where('id',$id)->first();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->update();
+        return response()->json([
+            "success" => true,
+            "message" => "User created successfully.",
+            "data" => $user
+        ]);
     }
     /**
     * Remove the specified resource from storage.
