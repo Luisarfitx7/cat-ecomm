@@ -9,7 +9,7 @@
                 </p>
             </div>
             <div class="grid gird-cols-1 p-4 font-semibold">
-                <a class="hover:text-gray-400" href="#attr-href">
+                <a class="hover:text-gray-400" href="/">
                     PRODUCTS
                 </a>
                 <a class="hover:text-gray-400" href="#attr-href">
@@ -26,7 +26,7 @@
                 </a>
             </div>
             <div class="grid gird-cols-1 p-4 font-semibold">
-                <a class="hover:text-gray-400" href="#attr-href">
+                <a class="hover:text-gray-400" href="{{route('login')}}">
                     Members Login
                 </a>
                 <a class="hover:text-gray-400" href="#attr-href">

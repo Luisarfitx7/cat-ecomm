@@ -56,8 +56,8 @@ class ProductController extends Controller
     * @param  int  $id
     * @return \Illuminate\Http\Response
     */
-    public function show($id) {
-        $product = Product::find($id);
+    public function show($product) {
+        $product = Product::where('slug',$product)->first();
         if (is_null($product)) {
             return $this->sendError('Product not found.');
         }

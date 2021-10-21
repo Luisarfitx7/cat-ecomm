@@ -80,9 +80,9 @@ class ProductController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($product)
     {
-        $response = Http::get($_SERVER['HTTP_HOST'] . '/api/products/' . $id);
+        $response = Http::get($_SERVER['HTTP_HOST'] . '/api/products/' . $product);
         //transform api data in an object
         $responseObject = $response->object();
         //verify api response
