@@ -21,6 +21,11 @@ class ProductController extends Controller
         $products = HTTP::get($_SERVER['HTTP_HOST'] . '/api/products');
         //transform api data in an object
         $productsObject = $products->object();
+        //verify api response
+        if($productsObject == []){
+            return redirect()->route('products.index')
+            ->with('error', 'Something not ideal might be happening.');
+        }
         return view('admin.products.index', compact('productsObject'));
     }
 
@@ -58,7 +63,13 @@ class ProductController extends Controller
             'status' => $request->status,
             'slug' => $slug
         ]);
-
+        //transform api data in an object
+        $responseObject = $response->object();
+        //verify api response
+        if($responseObject == []){
+            return redirect()->route('products.index')
+            ->with('error', 'Something not ideal might be happening.');
+        }
         return redirect()->route('products.index')
             ->with('success', 'Product created successfully.');
     }
@@ -74,6 +85,11 @@ class ProductController extends Controller
         $response = Http::get($_SERVER['HTTP_HOST'] . '/api/products/' . $id);
         //transform api data in an object
         $responseObject = $response->object();
+        //verify api response
+        if($responseObject == []){
+            return redirect()->route('products.index')
+            ->with('error', 'Something not ideal might be happening.');
+        }
         $product = $responseObject->data;
         return view('admin.products.update', compact('product'));
     }
@@ -103,6 +119,7 @@ class ProductController extends Controller
             'slug' => $slug
         ]);
         $responseObject = $response->object();
+        //verify api response
         if($responseObject == []){
             return redirect()->route('products.index')
             ->with('error', 'Something not ideal might be happening.');
@@ -119,7 +136,12 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $response = Http::delete($_SERVER['HTTP_HOST'] . '/api/products/' . $id);
-
+        $responseObject = $response->object();
+        //verify api response
+        if($responseObject == []){
+            return redirect()->route('products.index')
+            ->with('error', 'Something not ideal might be happening.');
+        }
         return redirect()->route('products.index')
             ->with('success', 'Product deleted successfully.');
     }

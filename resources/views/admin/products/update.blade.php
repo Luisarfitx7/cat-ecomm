@@ -1,5 +1,6 @@
-@include('layouts.front')
-@include('admin.menu')
+@extends('layouts.admin')
+
+@section('content')
 <div class="container flex justify-center mx-auto my-5">
     <p class="mx-5 text-6xl text-purple-600">
         Edit Product
@@ -55,3 +56,4 @@
         </div>
     </form>
 </div>
+@endsection

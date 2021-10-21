@@ -1,3 +1,4 @@
+
 <div class="container flex justify-center mx-auto my-6">
     <p class="mx-5 text-6xl text-purple-600">
         Products

@@ -23,9 +23,6 @@
                                 Email
                             </th>
                             <th class="px-6 py-2 text-xs text-gray-500">
-                                Password
-                            </th>
-                            <th class="px-6 py-2 text-xs text-gray-500">
                                 Edit
                             </th>
                             <th class="px-6 py-2 text-xs text-gray-500">
@@ -53,15 +50,8 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="text-sm text-gray-500">
-                                            ${{$user->price}}
+                                            {{$user->email}}
                                         </div>
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-500">
-                                        @if($user->status == 1)
-                                            Active
-                                        @else
-                                            In Active
-                                        @endif
                                     </td>
                                     <td class="px-6 py-4">
                                         <a href="{{route('users.edit', [$user->id])}}" class="px-4 py-1 text-sm text-white bg-blue-400 rounded">Edit</a>
