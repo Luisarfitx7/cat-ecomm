@@ -11,7 +11,7 @@
         </div>
         <div class="sm:text-2xl md:text-6xl">
             <h2 class=" font-bold">Product: {{ $product->name }}</h2>
-            <p >Description: {{ $product->description }}</p>
+            
             <span class="text-gray-900 ">Price</span> ${{ $product->price }}
             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
@@ -23,6 +23,9 @@
                             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded sm:text-2xl">Add To Cart</button>
                         </form>
         </div>
+    </div>
+    <div class=" max-w-x bg-gray-300 hover:bg-gray-200">
+    <p class="sm:text-xl">Description: {{ $product->description }}</p>
     </div>
 </div>
 @endsection

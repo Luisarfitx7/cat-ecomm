@@ -27,7 +27,7 @@ This CMS Includes everything you need to make an ecommerce business.
 
   ```
     php artisan db:seed --class=AdminSeeder
-    php artisan db:seed --class=ProducSeeder
+    php artisan db:seed --class=ProductSeeder
     php artisan db:seed --class=UserSeeder
 
   ```
