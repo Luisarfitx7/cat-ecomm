@@ -6,7 +6,7 @@
 </div>
 <div class="container mx-auto">
     <div class="grid sm:grid-cols-1 lg:grid-cols-3">
-        @if($productsObject->data)
+        @if(isset($productsObject->data))
             @foreach($productsObject->data as $product)
                 @if($product->status == 1)
                     <div class="text-center mx-6 my-12 ">
