@@ -28,6 +28,23 @@ Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove'
 Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 Route::get('/{productName}', [FrontController::class, 'product'])->name('product.show');
 
+Route::prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin');
+    Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+    Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+    Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+    Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+    Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
+    Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+    Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+    Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+    Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
+    Route::post('/users', [UserController::class, 'store'])->name('users.store');
+});
+/*
 Route::prefix('/admin')->middleware(['admin','auth'])->group(function(){
     Route::get('/', [AdminController::class, 'index']);
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
@@ -47,3 +64,4 @@ Route::prefix('/admin')->middleware(['admin','auth'])->group(function(){
 
 Auth::routes();
 
+*/
