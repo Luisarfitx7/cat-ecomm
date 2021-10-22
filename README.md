@@ -40,8 +40,7 @@ This CMS Includes everything you need to make an ecommerce business.
 ### CONTRIBUTION: Guidelines & Documentation
 
 - Database Key Fields, tables and or values:
-  1.  `users.email`: Users email.
-  2.  `admins.email`: Admins email = 'admin@gmail.com' password = 'password'.
+  1.  `users.email`: Admins email = 'admin@gmail.com' password = 'password'.
 
 
 - Back End: [Laravel 8.64.0](https://laravel.com/docs/8.x/installationphp artisan --version).
