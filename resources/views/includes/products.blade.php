@@ -10,12 +10,12 @@
             @foreach($productsObject->data as $product)
                 @if($product->status == 1)
                     <div class="text-center mx-6 my-12 ">
-                        <img class="mx-auto content-center" src="https://mdn.mozillademos.org/files/6851/mdn_logo.png" alt="MDN logo" />
-                        <p class="2">
+                        <img class="mx-auto content-center" src="https://source.unsplash.com/user/erondu/1600x900" alt="MDN logo" />
+                        <p class="text-2xl">
                             {{$product->name}}
                         </p>
-                        <p class="2">
-                            {{$product->price}}
+                        <p class="text-2xl">
+                            ${{$product->price}}
                         </p>
                         <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf

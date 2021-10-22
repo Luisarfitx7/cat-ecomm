@@ -30,7 +30,7 @@
                             <tr>
                               <td class="hidden pb-4 md:table-cell">
                                 <a href="#">
-                                  <img src="{{ $item->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
+                                  <img src="https://source.unsplash.com/user/erondu/1600x900" class="w-20 rounded" alt="Thumbnail">
                                 </a>
                               </td>
                               <td>
